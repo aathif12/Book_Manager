@@ -5,27 +5,28 @@
 
 /* ---- CSS Variables ---- */
 :root {
-  --primary:        #6366f1;
-  --primary-dark:   #4f46e5;
-  --primary-light:  rgba(99, 102, 241, 0.25);
-  --primary-hover:  #818cf8;
+  /* Minimalist Black & White Theme */
+  --primary:        #000000;
+  --primary-dark:   #1a1a1a;
+  --primary-light:  rgba(0, 0, 0, 0.1);
+  --primary-hover:  #333333;
 
-  --bg-page:    #0a0a1a;
-  --bg-dark:    #0f0f22;
-  --card-bg:    #13132a;
-  --hover-bg:   rgba(99, 102, 241, 0.06);
-  --input-bg:   #0f0f22;
+  --bg-page:    #ffffff;
+  --bg-dark:    #f8f9fa;
+  --card-bg:    #ffffff;
+  --hover-bg:   #f3f4f6;
+  --input-bg:   #ffffff;
 
-  --border-color:  rgba(99, 102, 241, 0.2);
-  --badge-bg:      rgba(99, 102, 241, 0.1);
+  --border-color:  #e2e8f0;
+  --badge-bg:      #f1f5f9;
 
-  --text-primary:   #f1f5f9;
-  --text-secondary: #94a3b8;
-  --text-muted:     #64748b;
+  --text-primary:   #0f172a;
+  --text-secondary: #475569;
+  --text-muted:     #94a3b8;
 
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
-  --shadow-md: 0 4px 20px rgba(0,0,0,0.4);
-  --shadow-lg: 0 10px 40px rgba(0,0,0,0.5);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
 }
 
 /* ---- Reset + Base ---- */
@@ -102,15 +103,15 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  background: var(--primary);
   color: white;
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, var(--primary-hover), var(--primary));
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-secondary {
