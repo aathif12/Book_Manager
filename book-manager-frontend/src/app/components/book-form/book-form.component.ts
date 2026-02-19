@@ -42,7 +42,7 @@ export class BookFormComponent implements OnInit {
     this.bookForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(200)]],
       author: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(150)]],
-      isbn: ['', [Validators.required, Validators.pattern(/^(?:ISBN(?:-1[03])?:? )?(?=[0-9X]{10}$|(?=(?:[0-9]+[- ]){3})[- 0-9X]{13}$|97[89][0-9]{10}$|(?=(?:[0-9]+[- ]){4})[- 0-9]{17}$)(?:97[89][- ]?)?[0-9]{1,5}[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$/)]],
+      isbn: ['', [Validators.required]],
       publicationDate: ['', [Validators.required]]
     });
   }
