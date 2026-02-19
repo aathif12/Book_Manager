@@ -9,7 +9,7 @@ namespace BookManagerAPI.Services
 
         public BookService()
         {
-            // Seed with some sample data
+            
             _books.Add(new Book { Id = _nextId++, Title = "Clean Code", Author = "Robert C. Martin", Isbn = "978-0132350884", PublicationDate = new DateTime(2008, 8, 1) });
             _books.Add(new Book { Id = _nextId++, Title = "The Pragmatic Programmer", Author = "Andrew Hunt & David Thomas", Isbn = "978-0135957059", PublicationDate = new DateTime(2019, 9, 13) });
             _books.Add(new Book { Id = _nextId++, Title = "Design Patterns", Author = "Gang of Four", Isbn = "978-0201633610", PublicationDate = new DateTime(1994, 10, 31) });
