@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Book } from '../../models/book.model';
 import { BookService } from '../../services/book.service';
 import { Router } from '@angular/router';
@@ -18,7 +18,11 @@ export class BookListComponent implements OnInit {
   sortField: keyof Book = 'id';
   sortAsc = true;
 
-  constructor(private bookService: BookService, private router: Router) {}
+  constructor(
+    private bookService: BookService,
+    private router: Router,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.loadBooks();
@@ -31,6 +35,7 @@ export class BookListComponent implements OnInit {
       next: (books) => {
         this.books = books;
         this.isLoading = false;
+        this.cdr.detectChanges();
       },
       error: (err) => {
         this.errorMessage = 'Failed to load books. Please ensure the backend is running.';
@@ -80,6 +85,7 @@ export class BookListComponent implements OnInit {
       next: () => {
         this.books = this.books.filter(b => b.id !== book.id);
         this.showSuccess(`"${book.title}" has been deleted successfully.`);
+        this.cdr.detectChanges();
       },
       error: () => {
         this.errorMessage = 'Failed to delete the book. Please try again.';
