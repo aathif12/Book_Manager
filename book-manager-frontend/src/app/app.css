@@ -1,0 +1,196 @@
+/* ========== App-Level Styles ========== */
+
+.nav-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15, 15, 30, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.nav-brand:hover { opacity: 0.85; }
+
+.brand-icon {
+  font-size: 1.6rem;
+}
+
+.brand-name {
+  font-size: 1.3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #a5b4fc, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: white;
+  background: rgba(99, 102, 241, 0.2);
+}
+
+.nav-link-cta {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white !important;
+  font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.nav-link-cta:hover {
+  background: linear-gradient(135deg, #818cf8, #6366f1) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+}
+
+/* ========== Hero Banner ========== */
+.hero-banner {
+  position: relative;
+  background: linear-gradient(135deg, #0f0f1e 0%, #1a1a3e 50%, #0f0f2e 100%);
+  padding: 3rem 2rem;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  color: #a5b4fc;
+  padding: 0.35rem 1rem;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.hero-subtitle {
+  color: rgba(255,255,255,0.6);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.hero-decoration {
+  position: absolute;
+  top: 0; right: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+
+.deco-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.12;
+}
+
+.c1 { width: 300px; height: 300px; background: #6366f1; top: -100px; right: -80px; }
+.c2 { width: 180px; height: 180px; background: #818cf8; bottom: -60px; right: 200px; }
+.c3 { width: 100px; height: 100px; background: #a5b4fc; top: 20px; right: 250px; }
+
+/* ========== Main Content ========== */
+.main-content {
+  min-height: calc(100vh - 320px);
+  padding: 2rem 0;
+}
+
+/* ========== Footer ========== */
+.app-footer {
+  background: rgba(15, 15, 30, 0.8);
+  border-top: 1px solid rgba(99, 102, 241, 0.15);
+  padding: 1.5rem;
+  text-align: center;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.85rem;
+}
+
+.app-footer strong { color: rgba(255,255,255,0.8); }
+
+.footer-sub {
+  margin-top: 0.25rem;
+  color: rgba(255,255,255,0.3);
+  font-size: 0.78rem;
+}
+
+/* ========== Global Toast ========== */
+.global-toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  z-index: 9999;
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: slideInRight 0.4s ease, fadeOut 0.5s ease 3.5s forwards;
+  max-width: 360px;
+}
+
+.toast-icon { font-size: 1.2rem; }
+
+@keyframes slideInRight {
+  from { transform: translateX(120%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; transform: translateX(120%); }
+}
