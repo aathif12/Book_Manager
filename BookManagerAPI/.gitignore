@@ -1,0 +1,49 @@
+## ─── ASP.NET Core / C# .gitignore ───────────────────────────────────────────
+
+# Build output folders
+bin/
+obj/
+
+# .NET user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet packages (restored automatically on build)
+packages/
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Visual Studio temp files
+.vs/
+*.rsuser
+*.vsp
+*.vspx
+*.sap
+
+# Rider IDE
+.idea/
+*.sln.iml
+
+# VS Code (optional — keep if you want to share settings)
+# .vscode/
+
+# Environment-specific appsettings (may contain secrets)
+appsettings.Development.json
+appsettings.Production.json
+
+# Publish output
+publish/
+PublishOutput/
+
+# Crash dumps
+*.dmp
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
