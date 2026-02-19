@@ -75,7 +75,7 @@
         />
         <div class="invalid-feedback" *ngIf="f['isbn'].touched && f['isbn'].errors">
           <span *ngIf="f['isbn'].errors?.['required']">ISBN is required.</span>
-          <span *ngIf="f['isbn'].errors?.['pattern']">Please enter a valid ISBN-10 or ISBN-13.</span>
+          <span *ngIf="f['isbn'].errors?.['minlength'] || f['isbn'].errors?.['maxlength']">ISBN must be between 10 and 17 characters.</span>
         </div>
         <div class="form-hint">Enter ISBN-10 or ISBN-13 format (e.g., 978-0132350884)</div>
       </div>
