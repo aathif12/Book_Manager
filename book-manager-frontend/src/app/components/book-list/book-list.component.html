@@ -1,0 +1,91 @@
+<section class="book-list-section">
+
+  <div class="page-header">
+    <div class="header-content">
+      <div class="header-text">
+        <h1>My Book Library</h1>
+        <p>Manage your personal book collection</p>
+      </div>
+      <a routerLink="/books/add" class="btn btn-primary">
+        <span class="btn-icon">+</span> Add New Book
+      </a>
+    </div>
+  </div>
+
+
+  <div class="alert alert-success" *ngIf="successMessage">
+    <span class="alert-icon">✓</span>
+    {{ successMessage }}
+    <button class="alert-close" (click)="dismissSuccess()">×</button>
+  </div>
+  <div class="alert alert-danger" *ngIf="errorMessage">
+    
+    {{ errorMessage }}
+    <button class="alert-close" (click)="dismissError()">×</button>
+  </div>
+
+
+  <div class="search-bar-container">
+    <div class="search-bar">
+      
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        placeholder="Search by title, author, or ISBN..."
+        class="search-input"
+      />
+    </div>
+    <div class="book-count">
+      <span class="count-badge">{{ filteredBooks.length }}</span>
+      {{ filteredBooks.length === 1 ? 'Book' : 'Books' }} Found
+    </div>
+  </div>
+
+
+  <div class="loading-container" *ngIf="isLoading">
+    <div class="spinner"></div>
+    <p>Loading your books...</p>
+  </div>
+
+
+  <div class="empty-state" *ngIf="!isLoading && filteredBooks.length === 0 && !errorMessage">
+    
+    <h3>{{ searchQuery ? 'No books found' : 'No books yet' }}</h3>
+    <p>{{ searchQuery ? 'Try adjusting your search query.' : 'Start building your library by adding your first book!' }}</p>
+    <a routerLink="/books/add" class="btn btn-primary" *ngIf="!searchQuery">Add Your First Book</a>
+  </div>
+
+  <div class="table-container" *ngIf="!isLoading && filteredBooks.length > 0">
+    <table class="books-table">
+      <thead>
+        <tr>
+          <th (click)="sortBy('id')" class="sortable">#ID </th>
+          <th (click)="sortBy('title')" class="sortable">Title</th>
+          <th (click)="sortBy('author')" class="sortable">Author</th>
+          <th (click)="sortBy('isbn')" class="sortable">ISBN</th>
+          <th (click)="sortBy('publicationDate')" class="sortable">Publication Date</th>
+          <th class="actions-col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of filteredBooks; let i = index" class="book-row">
+          <td class="id-cell">{{ book.id }}</td>
+          <td class="title-cell">
+            <div class="book-title">{{ book.title }}</div>
+          </td>
+          <td class="author-cell">{{ book.author }}</td>
+          <td class="isbn-cell"><span class="isbn-badge">{{ book.isbn }}</span></td>
+          <td class="date-cell">{{ formatDate(book.publicationDate) }}</td>
+          <td class="actions-cell">
+            <button class="btn-action btn-edit" (click)="editBook(book.id)" title="Edit book">
+            Edit
+            </button>
+            <button class="btn-action btn-delete" (click)="deleteBook(book)" title="Delete book">
+             Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

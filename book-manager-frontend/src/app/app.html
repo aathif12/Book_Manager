@@ -1,0 +1,48 @@
+
+<div class="global-toast" *ngIf="successMessage">
+  {{ successMessage }}
+</div>
+
+
+<header class="nav-header">
+  <div class="nav-container">
+    <a routerLink="/books" class="nav-brand">
+      <span class="brand-name">BookManager</span>
+    </a>
+    <nav class="nav-links">
+      <a routerLink="/books" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+         Library
+      </a>
+      <a routerLink="/books/add" routerLinkActive="active" class="nav-link nav-link-cta">
+        + Add Book
+      </a>
+    </nav>
+  </div>
+</header>
+
+
+<div class="hero-banner">
+  <div class="hero-content">
+    <span class="hero-badge"> Book Management System</span>
+    <h2 class="hero-title">Organize Your Reading World</h2>
+    <p class="hero-subtitle">Add, edit. and manage your entire book collection in one beautiful place.</p>
+  </div>
+  <div class="hero-decoration">
+    <div class="deco-circle c1"></div>
+    <div class="deco-circle c2"></div>
+    <div class="deco-circle c3"></div>
+  </div>
+</div>
+
+
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>
+
+
+<footer class="app-footer">
+  <div class="footer-content">
+    <p> <strong>BookManager</strong> </p>
+    <p class="footer-sub">{{ currentYear }}</p>
+  </div>
+</footer>
